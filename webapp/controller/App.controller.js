@@ -7,22 +7,6 @@ sap.ui.define([
     "use strict"
 
     return Controller.extend("ui5.walkthrough.controller.App",{
-        onInit(){  
-            const oData ={
-                recipient : {
-                    name : "UI5"
-                }
-            }
-            const oModel = new JSONModel(oData)
-            this.getView().setModel(oModel)
-
-            // set i18n model on view
-            const i18nModel = new ResourceModel({
-                bundleName: "ui5.walkthrough.i18n.i18n"
-            });
-            this.getView().setModel(i18nModel, "i18n");
-        },
-        
         onShowHello(){
             // read msg from i18n model
             const oBundle = this.getView().getModel("i18n").getResourceBundle();

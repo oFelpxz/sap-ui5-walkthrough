@@ -6,14 +6,10 @@ sap.ui.define([
     "use strict";
 
     return UIComponent.extend("ui5.walkthrough.Component", {
-        metadata: {
-            rootView: {
-                "viewName": "ui5.walkthrough.view.App",
-                "type": "XML",
-                "async": true,
-                "id": "app"
-            }
-        },
+        metadata : {
+            interfaces: ["sap.ui.core.IAsyncContentCreation"],
+            manifest: "json"
+         },
         init(){
             // call the init function of the parent
             UIComponent.prototype.init.apply(this, arguments);
@@ -25,12 +21,6 @@ sap.ui.define([
             }
             const oModel = new JSONModel(oData)
             this.setModel(oModel)
-
-            // set i18n model
-            const i18nModel = new ResourceModel({
-                bundleName: "ui5.walkthrough.i18n.i18n"
-            });
-            this.setModel(i18nModel, "i18n");
         }
     })
 })
